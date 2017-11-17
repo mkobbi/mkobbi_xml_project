@@ -1,8 +1,3 @@
-#     convert to DFA
-#     draw NFA in debug mode using Graphviz
-#     return positions of match
-
-
 from parse import Lexer, Parser, Manipulateur
 
 
