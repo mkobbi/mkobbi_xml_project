@@ -16,7 +16,6 @@ class TestRegex(unittest.TestCase):
             self.assertEqual(nfa.match(t_str), True)
             if f_str:
                 self.assertEqual(nfa.match(f_str), False)
-            #print(line, "valid")
             print("valid")
     
     def test_basic(self):
