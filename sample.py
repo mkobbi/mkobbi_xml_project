@@ -11,7 +11,7 @@ def timing_normal():
     '''
     comparing re and regex on normal inputs
     '''
-    with open('test_suite.dat', 'r') as f:
+    with open('in.test', 'r') as f:
         text = f.readlines()
     f = open('time.dat', 'w')
     f.write('Python(ms)\tRegex(ms)\n')
