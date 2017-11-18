@@ -16,9 +16,9 @@ else:
     print("Not well-formed")
 for key in xml:
     #print(dtd[key])
+    nfa = Regex.compile(dtd[key])
     for chaine in xml[key]:
         #print(key, chaine)
-        nfa = Regex.compile(dtd[key])
         if nfa.match(chaine):
             print("valid")
         else:
