@@ -37,11 +37,8 @@ class Parser:
 
 
     def parse(self):
-        self.exp()
-        return self.tokens
-    
-    def exp(self):
         self.term()
+        return self.tokens
 
     def term(self):
         self.facteur()
@@ -58,7 +55,7 @@ class Parser:
     def primary(self):
         if self.lookahead.nom == 'PAREN_GAUCHE':
             self.considerer('PAREN_GAUCHE')
-            self.exp()
+            self.term()
             self.considerer('PAREN_DROITE')
         elif self.lookahead.nom == 'CHAR':
             self.tokens.append(self.lookahead)
