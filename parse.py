@@ -127,20 +127,7 @@ class Manipulateur:
         n1.fin.epsilon.append(n2.debut)
         nfa = NFA(n1.debut, n2.fin)
         pile_nfa.append(nfa)
-    
-    def gerer_alt(self, t, pile_nfa):
-        n2 = pile_nfa.pop()
-        n1 = pile_nfa.pop()
-        s0 = self.creer_etat()
-        s0.epsilon = [n1.debut, n2.debut]
-        s3 = self.creer_etat()
-        n1.fin.epsilon.append(s3)
-        n2.fin.epsilon.append(s3)
-        n1.fin.est_fin = False
-        n2.fin.est_fin = False
-        nfa = NFA(s0, s3)
-        pile_nfa.append(nfa)
-    
+        
     def gerer_rep(self, t, pile_nfa):
         n1 = pile_nfa.pop()
         s0 = self.creer_etat()
