@@ -35,18 +35,17 @@ class Parser:
         if self.lookahead.nom == nom:
             self.lookahead = self.lexer.prendre_token()
 
-
     def parse(self):
         self.term()
         return self.tokens
-
+    
     def term(self):
-        self.facteur()
+        self.operateur()
         if self.lookahead.valeur not in ')':
             self.term()
             self.tokens.append(Token('CONCAT', '\x08'))
     
-    def facteur(self):
+    def operateur(self):
         self.primary()
         if self.lookahead.nom in ['ETOILE', 'PLUS', 'INTERROGATION']:
             self.tokens.append(self.lookahead)
@@ -89,8 +88,8 @@ class NFA:
             prochains_etats = set()
             for etat in etats_actuels:
                 if c in etat.transitions.keys():
-                    trans_etat = etat.transitions[c]
-                    self.ajouteretat(trans_etat, prochains_etats)
+                    etat_transitoire = etat.transitions[c]
+                    self.ajouteretat(etat_transitoire, prochains_etats)
            
             etats_actuels = prochains_etats
 
@@ -124,7 +123,7 @@ class Manipulateur:
         n1.fin.epsilon.append(n2.debut)
         nfa = NFA(n1.debut, n2.fin)
         pile_nfa.append(nfa)
-        
+    
     def gerer_rep(self, t, pile_nfa):
         n1 = pile_nfa.pop()
         s0 = self.creer_etat()
