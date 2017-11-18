@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
 import java.lang.Integer;
 //import java.util.Scanner;
 
-public class Program {
+public class XMLGenerator {
 
     public static void main(String argv[]) throws Exception {
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
