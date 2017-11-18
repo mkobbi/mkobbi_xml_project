@@ -1,0 +1,8 @@
+<!DOCTYPE EXAMPLE [
+
+<!ENTITY a ((b,c)*,d)>
+<!ENTITY b (c)>
+<!ENTITY c (b)> 
+<!ENTITY d (#PCDATA)>
+
+]>
