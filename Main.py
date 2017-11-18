@@ -7,14 +7,17 @@ gname = sys.argv[2]
 
 #print(fname, gname)
 xml = formater_xml(fname)
+#print(xml)
 dtd = formater_dtd(gname)
 bien_forme, _, _ = verifier_bien_forme(fname)
 if bien_forme:
     print("Well-formed")
+else:
+    print("Not well-formed")
 for key in xml:
-    print(dtd[key])
+    #print(dtd[key])
     for chaine in xml[key]:
-        print(key, chaine)
+        #print(key, chaine)
         nfa = Regex.compile(dtd[key])
         if nfa.match(chaine):
             print("valid")

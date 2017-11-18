@@ -4,17 +4,19 @@ from Stack import Stack
 def ouvrir_xml(xml):
     with open(xml, 'r') as f:
         chaine = f.read()
-    #print(chaine)
-    t = chaine.split("><")
-    t[0] = t[0][1]
-    t[-1] = t[-1][0] + t[-1][1]
-    #print(t)
+    t = chaine.split(">")
     l = []
     for n in t:
-        if len(n)==1:
-            l.append([0, n])
-        else:
-            l.append([1,n[1]])
+        letter = None
+        for i, c in enumerate(n):
+            if c.isalpha():
+                letter =  c
+                break
+        if '<' in n:
+            if '/' not in n:
+                l.append([0, letter])
+            else:
+                l.append([1, letter])
     return l
 
 def formater_dtd(dtd):
