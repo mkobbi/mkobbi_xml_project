@@ -23,7 +23,7 @@ class Lexer:
                 token = Token(self.symboles[c], c)
             return token
         else:
-            return Token('NONE', '')
+            return Token('AUCUN', '')
 
 class Parseur:
     def __init__(self, lexer):
