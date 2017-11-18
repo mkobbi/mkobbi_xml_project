@@ -79,13 +79,7 @@ class NFA:
         ensemble_etat.add(etat)
         for eps in etat.epsilon:
             self.ajouteretat(eps, ensemble_etat)
-    
-    def pretty_print(self):
-        '''
-        print using Graphviz
-        '''
-        pass
-    
+        
     def match(self,s):
         etats_actuels = set()
         self.ajouteretat(self.debut, etats_actuels)
